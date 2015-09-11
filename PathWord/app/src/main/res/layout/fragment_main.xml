@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="#333333"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainFrame"
+        >
+
+        <FrameLayout
+            android:background="@drawable/mainbg1"
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/frameLayout"
+            android:layout_below="@+id/tool_bar"
+            android:layout_centerHorizontal="true"></FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#333333"
+            android:layout_below="@+id/frameLayout"
+            >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="30dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/mainbg2"
+                    android:layout_below="@+id/frameLayout"
+                    android:layout_alignParentStart="true" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:layout_margin="20dp"
+                            android:id="@+id/button_remind"
+                            android:background="@drawable/button_main_remind"
+                            android:onClick="onRemindButonClicked"
+                            android:nestedScrollingEnabled="true" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:layout_margin="20dp"
+                            android:id="@+id/button_voca"
+                            android:background="@drawable/button_main_voca"
+                            android:onClick="onVocaButonClicked"
+                            android:nestedScrollingEnabled="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:layout_margin="20dp"
+                            android:id="@+id/button_alarm"
+                            android:background="@drawable/button_main_alarm"
+                            android:onClick="onAlarmButonClicked"
+                            android:nestedScrollingEnabled="true" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:layout_margin="20dp"
+                            android:id="@+id/button_games"
+                            android:background="@drawable/button_main_games"
+                            android:onClick="onGamesButonClicked"
+                            android:nestedScrollingEnabled="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:layout_margin="20dp"
+                            android:id="@+id/button_search"
+                            android:background="@drawable/button_main_search"
+                            android:onClick="onSearchButonClicked"
+                            android:nestedScrollingEnabled="true" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:layout_margin="20dp"
+                            android:id="@+id/button_setting"
+                            android:background="@drawable/button_main_setting"
+                            android:onClick="onSettingButonClicked"
+                            android:nestedScrollingEnabled="true" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </RelativeLayout>
+    </RelativeLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.welshcora.pathword" >
+    <uses-permission android:name="android.permission.INTERNET"> </uses-permission>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="PathWord" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FriendActivity"
+            android:label="친구"
+            >
+        </activity>
+        <activity
+            android:name=".PointActivity"
+            android:label="포인트"
+            >
+        </activity>
+        <activity
+            android:name=".RankActivity"
+            android:label="랭크"
+            >
+        </activity>
+        <activity
+            android:name=".SetNameActivity"
+            android:label="이름설정"
+            >
+        </activity>
+        <activity
+            android:name=".VersionActivity"
+            android:label="버전정보"
+            >
+        </activity>
+        <activity
+            android:name=".SearchActivity"
+            android:label="검색"
+            >
+        </activity>
+        <activity
+            android:name=".AlarmSettingActivity"
+            android:label="알람 설정"            >
+        </activity>
+        <activity
+            android:name=".RemindActivity"
+            android:label="단어 연상"            >
+        </activity>
+        <activity
+            android:name=".Membership"
+            android:label="@string/app_name"
+            >
+
+        </activity>
+        <activity
+            android:name=".Intro1Activity"
+            android:label="@string/app_name"
+            >
+
+        </activity>
+        <activity
+            android:name=".Intro2Activity"
+            android:label="@string/app_name"
+            >
+        </activity>
+    </application>
+
+</manifest>
