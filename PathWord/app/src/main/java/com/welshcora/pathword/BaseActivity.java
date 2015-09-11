@@ -59,7 +59,7 @@ public class BaseActivity extends ActionBarActivity {
     //툴바
     protected Toolbar toolbar;                              // Toolbar 오브젝트를 정의
     protected FrameLayout content;
-
+    TextView toolbar_title;
     //폰트
     FontChangeCrawler fontChanger;
 
@@ -107,10 +107,10 @@ public class BaseActivity extends ActionBarActivity {
     }
     public void setToolbar(String toolbartitle){
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        TextView toolbar_title = (TextView) findViewById(R.id.toolbar_title);
-        Typeface temp = Typeface.create(fontChanger.typeface, Typeface.BOLD);//tool_bar에 들어가는 타이틀은 Bold체로 만들기 위하여
+        toolbar_title = (TextView) findViewById(R.id.toolbar_title);
+        //Typeface temp = Typeface.create(fontChanger.typeface, Typeface.BOLD);//tool_bar에 들어가는 타이틀은 Bold체로 만들기 위하여
         toolbar_title.setText(toolbartitle);
-        toolbar_title.setTypeface(temp);
+        toolbar_title.setTypeface(fontChanger.typeface);
         setSupportActionBar(toolbar);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override

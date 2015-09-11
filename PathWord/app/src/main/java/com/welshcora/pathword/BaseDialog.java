@@ -3,8 +3,10 @@ package com.welshcora.pathword;
 import android.app.AlertDialog;
 import android.graphics.Typeface;
 import android.support.v4.app.DialogFragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ListView;
 import android.widget.TextView;
 

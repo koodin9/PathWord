@@ -253,6 +253,10 @@ public class ListViewAdapter extends BaseAdapter {
                 holder.mText.setText(mData.mTitle);
                 Typeface temp = Typeface.createFromAsset(convertView.getContext().getAssets(), "HoonWhiteCat.ttf.mp3");
                 holder.mText.setTypeface(temp);
+            } else if(mData.mTitle.equals("나눔바른고딕")){
+                holder.mText.setText(mData.mTitle);
+                Typeface temp = Typeface.createFromAsset(convertView.getContext().getAssets(), "NanumBarunGothic.ttf.mp3");
+                holder.mText.setTypeface(temp);
             }
         }
         if(type != NORMALTYPEFACE_TYPE){
