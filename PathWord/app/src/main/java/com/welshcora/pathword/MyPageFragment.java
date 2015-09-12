@@ -1,5 +1,6 @@
 package com.welshcora.pathword;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -14,12 +15,47 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class MyPageFragment extends BaseFragment {
+
+    JSONObject returnJson;
+    ToServer ts;
+
+    ArrayList<String> key = new ArrayList<String>();
+    ArrayList<String> value = new ArrayList<String>();
+
+    String mail;
+    int point,ranking,friendsNum;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        ts = new ToServer();
+        key.add("mail");
+        value.add(MyApplication.getGlobalString());
+
+        returnJson = ts.sendToServer("myinform.php", key, value);
+
+        for(int i=0;i<key.size();i++){
+            key.remove(i);
+            value.remove(i);
+        }
+
+        try {
+            point = returnJson.getInt("point");
+            ranking = returnJson.getInt("ranking");
+            friendsNum = returnJson.getInt("friendsNum");
+        }catch(Exception e){e.printStackTrace();}
+    }
+
+
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View connectionView = inflater.inflate(R.layout.fragment_mypage,container,false);
@@ -65,6 +101,9 @@ public class MyPageFragment extends BaseFragment {
                     getActivity().startActivity(intent);
                 } else if (mData.mTitle.equals("포인트")){
                     Intent intent = new Intent(getActivity(), PointActivity.class);
+                    getActivity().startActivity(intent);
+                } else if (mData.mTitle.equals("친구 찾기")){
+                    Intent intent = new Intent(getActivity(), FindFriend.class);
                     getActivity().startActivity(intent);
                 }
             }
