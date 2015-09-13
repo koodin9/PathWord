@@ -13,9 +13,19 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 
 public class FriendActivity extends BaseActivity {
+    JSONObject returnJson;
+    ToServer ts;
+    String name,mail;
 
+    ArrayList<String> key = new ArrayList<String>();
+    ArrayList<String> value = new ArrayList<String>();
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +37,26 @@ public class FriendActivity extends BaseActivity {
         //Drawer 붙이기
         //makeDrawer();
         //커스텀 속성
+        ts = new ToServer();
+        key.add("mail");
+        value.add(MyApplication.getGlobalString());
+
+        returnJson = ts.sendToServer("pushFriends.php", key, value);
+
+        for (int i = 0; i < key.size(); i++) {
+            key.remove(i);
+            value.remove(i);
+        }
         mListView = (ListView) findViewById(R.id.listView_friend);
         mAdapter1 = new ListViewAdapter(this);
-        for(int i = 0; i < 50; i++){
-            mAdapter1.addItem(getResources().getDrawable(R.drawable.aka), "친구" + (i+1), "(멍청이)",FRIEND_TYPE);
+        for(int i = 0; i < returnJson.length(); i+=2){
+            try {
+                name = returnJson.getString(String.valueOf(i));
+                mail = returnJson.getString(String.valueOf(i+1));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            mAdapter1.addItem(getResources().getDrawable(R.drawable.aka), name +" ", mail,FRIEND_TYPE);
         }
         mListView.setAdapter(mAdapter1);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { //나중에 버튼 순서대로 정렬해놔
