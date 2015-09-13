@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import java.util.ArrayList;
 
@@ -178,7 +179,8 @@ public class ListViewAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.listview_alarm_main, null);
 
-            holder.Time = (TextView) convertView.findViewById(R.id.Time);
+            holder.Hour = (TextView) convertView.findViewById(R.id.Hour);
+            holder.Minute = (TextView) convertView.findViewById(R.id.Minute);
             holder.AMPM = (TextView) convertView.findViewById(R.id.AMPM);
             holder.Date = (TextView) convertView.findViewById(R.id.Date);
             holder.AlarmIc = (ImageView) convertView.findViewById(R.id.alarmic);
@@ -199,7 +201,8 @@ public class ListViewAdapter extends BaseAdapter {
                 }
             });
             AlarmMainListData mData = (AlarmMainListData) tempList.get(position);
-            holder.Time.setText(mData.Time);
+            holder.Hour.setText(mData.Hour);
+            holder.Minute.setText(mData.Minute);
             holder.AMPM.setText(mData.AMPM);
             holder.Date.setText(mData.Date);
         } else if (type == ALARMADDBUTTON_TYPE){
@@ -235,6 +238,7 @@ public class ListViewAdapter extends BaseAdapter {
         } else if (type == ALARMTIMEPICKER_TYPE){
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.listview_alarm_timepicker, null);
+
         } else if(type == NORMALTYPEFACE_TYPE) {
             NormalTypefaceHolder holder = new NormalTypefaceHolder();
 
@@ -290,6 +294,7 @@ public class ListViewAdapter extends BaseAdapter {
             tempList.add(addInfo);
         }
     }
+
     public void addItem(String mTitle, String point, int type){
         if(type == POINT_TYPE){ //마이페이지에서 잔여 포인트량 리스트뷰
             PointListData addInfo;
@@ -316,26 +321,29 @@ public class ListViewAdapter extends BaseAdapter {
         addInfo.ProfilePic = profilepic;
         tempList.add(addInfo);
     }
-    public void addItem(String time, String ampm, String date,int type){
-        AlarmMainListData addInfo;
-        addInfo = new AlarmMainListData();
-        addInfo.setType(type);
-        addInfo.mTitle = Integer.toString(alarmCount);
-        addInfo.Time = time;
-        addInfo.AMPM = ampm;
-        addInfo.Date = date;
-        alarmCount++;
-        tempList.add(addInfo);
-    }
-    public void addItem(String rank, String friend, String wordbook, String myPath, int type){
-        CombineListData addInfo;
-        addInfo = new CombineListData();
-        addInfo.setType(type);
-        addInfo.rank = rank;
-        addInfo.friend = friend;
-        addInfo.wordbook = wordbook;
-        addInfo.myPath = myPath;
-        tempList.add(addInfo);
+
+    public void addItem(String rank, String friend, String wordbook, String myPath, int type){//마이페이지의 짬뽕리스트랑 알람 메인
+        if(type == ALARMMAIN_TYPE){
+            AlarmMainListData addInfo;
+            addInfo = new AlarmMainListData();
+            addInfo.setType(type);
+            addInfo.mTitle = Integer.toString(alarmCount);
+            addInfo.Hour = rank;
+            addInfo.Minute = friend;
+            addInfo.AMPM = wordbook;
+            addInfo.Date = myPath;
+            alarmCount++;
+            tempList.add(addInfo);
+        } else{
+            CombineListData addInfo;
+            addInfo = new CombineListData();
+            addInfo.setType(type);
+            addInfo.rank = rank;
+            addInfo.friend = friend;
+            addInfo.wordbook = wordbook;
+            addInfo.myPath = myPath;
+            tempList.add(addInfo);
+        }
     }
     public void addItem(String rank, Drawable profilepic, String personname, String nickname, String ability, int type){
         RankListData addInfo;
@@ -385,7 +393,8 @@ class FriendHolder extends ViewHolder {
 }
 
 class AlarmMainHolder extends ViewHolder {
-    public TextView Time;
+    public TextView Hour;
+    public TextView Minute;
     public TextView AMPM;
     public TextView Date;
     public ImageView AlarmIc;
@@ -398,15 +407,4 @@ class AlarmDateHolder extends ViewHolder {
     public TextView Fri;
     public TextView Sat;
     public TextView Sun;
-}
-
-class myOnClick implements View.OnClickListener{ //알람셋팅에서 요일별로 리스너 부착을 위해
-    @Override
-    public void onClick(View v) {
-        if(v.isSelected()){
-            v.setSelected(false);
-        } else {
-            v.setSelected(true);
-        }
-    }
 }

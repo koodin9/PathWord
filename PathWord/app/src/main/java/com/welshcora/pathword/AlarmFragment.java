@@ -39,22 +39,16 @@ public class AlarmFragment extends BaseFragment {
         ArrayList<ListData> settingList = new ArrayList<ListData>();
         mAdapter1 = new ListViewAdapter(getActivity());
 
-        mAdapter1.addItem("08:50", "AM", "월,화,목요일마다", ALARMMAIN_TYPE);
-        mAdapter1.addItem("08:50", "AM", "월,화,목요일마다", ALARMMAIN_TYPE);
-        mAdapter1.addItem("08:50", "AM", "월,화,목요일마다", ALARMMAIN_TYPE);
-        mAdapter1.addItem("08:50", "AM", "월,화,목요일마다", ALARMMAIN_TYPE);
-        mAdapter1.addItem("08:50", "AM", "월,화,목요일마다", ALARMMAIN_TYPE);
-        mAdapter1.addItem("08:50", "AM", "월,화,목요일마다", ALARMMAIN_TYPE);
         mAdapter1.addItem(ALARMADDBUTTON_TYPE);
 
         mListView.setAdapter(mAdapter1);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { //나중에 버튼 순서대로 정렬해놔
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                ListData mData = (ListData)mAdapter1.tempList.get(position);
+                ListData mData = mAdapter1.tempList.get(position);
                 if (mData.mTitle.equals(Integer.toString(position))){//엑티비티사이의 정보교환 필요
                     Intent intent = new Intent(getActivity(), AlarmSettingActivity.class);
-                    getActivity().startActivity(intent);
+                    startActivityForResult(intent, 1);
                 }
                 /*if(mData.mTitle.equals("서체 설정")){
                     FontSetDialog fd = new FontSetDialog();
@@ -72,6 +66,13 @@ public class AlarmFragment extends BaseFragment {
             }
         });
 
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == 1) {
+            mAdapter1.addItem(data.getStringExtra("Hour"), data.getStringExtra("Minute"), "AM", "월,화,목요일마다", ALARMMAIN_TYPE);
+            mAdapter1.notifyDataSetChanged();
+        }
     }
     public static AlarmFragment newInstance() {
         AlarmFragment fragment = new AlarmFragment();

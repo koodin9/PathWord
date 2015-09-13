@@ -2,6 +2,7 @@ package com.welshcora.pathword;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
 
@@ -45,5 +46,10 @@ public class MainActivity extends BaseActivity {
     public void onSettingButonClicked(View v) {
         Toast.makeText(this, "메인 메뉴 셋팅 버튼이 눌림", Toast.LENGTH_LONG).show();
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, settingFragment).addToBackStack(null).commit();
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.mainFrame);
+        fragment.onActivityResult(requestCode, resultCode, data);
     }
 }

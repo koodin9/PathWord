@@ -41,7 +41,8 @@
                 android:layout_marginRight="10dp"
                 android:background="#ffffff"
                 android:text="저장"
-                android:id="@+id/button3" />
+                android:id="@+id/store"
+                android:onClick="onStoreClicked" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -49,7 +50,8 @@
                 android:layout_weight="1.0"
                 android:background="#ffffff"
                 android:text="취소"
-                android:id="@+id/button4" />
+                android:id="@+id/cancle"
+                android:onClick="onCancleClicked" />
         </LinearLayout>
     </RelativeLayout>
 

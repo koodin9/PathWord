@@ -11,10 +11,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.text.DateFormat;
@@ -68,5 +70,42 @@ public class AlarmSettingActivity extends BaseActivity {
                 }*/
             }
         });
+    }
+    public void onCancleClicked(View v){
+        finish();
+    }
+    public void onStoreClicked(View v){//저장 버튼 눌렸을때 하는 일
+        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        timePicker.getCurrentHour();
+
+        ArrayList<View> selectedDate = new ArrayList<View>();
+        AlarmDateHolder dateHolder = new AlarmDateHolder();
+        dateHolder.Mon = (TextView) findViewById(R.id.monday);
+        dateHolder.Tue = (TextView) findViewById(R.id.tuesday);
+        dateHolder.Wed = (TextView) findViewById(R.id.wednesday);
+        dateHolder.Thr = (TextView) findViewById(R.id.thursday);
+        dateHolder.Fri = (TextView) findViewById(R.id.friday);
+        dateHolder.Sat = (TextView) findViewById(R.id.saturday);
+        dateHolder.Sun = (TextView) findViewById(R.id.sunday);
+        if(dateHolder.Mon.isSelected()){
+            Toast.makeText(this, "월요일 눌림", Toast.LENGTH_LONG).show();
+            selectedDate.add(dateHolder.Mon);
+        }
+        Intent intent = new Intent();
+        intent.putExtra("Hour", timePicker.getCurrentHour().toString());
+        intent.putExtra("Minute", timePicker.getCurrentMinute().toString());
+        setResult(1, intent);
+        finish();
+    }
+
+}
+class myOnClick implements View.OnClickListener{ //알람셋팅에서 요일별로 리스너 부착을 위해
+    @Override
+    public void onClick(View v) {
+        if(v.isSelected()){
+            v.setSelected(false);
+        } else {
+            v.setSelected(true);
+        }
     }
 }

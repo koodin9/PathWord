@@ -61,7 +61,8 @@ class FriendListData extends ListData {
         public Drawable ProfilePic;
 }
 class AlarmMainListData extends ListData {
-        public String Time;
+        public String Hour;
+        public String Minute;
         public String AMPM;
         public String Date;
         public ImageView AlarmIc;
@@ -75,4 +76,3 @@ class AlarmDateListData extends ListData {
         public String sat;
         public String sun;
 }
-

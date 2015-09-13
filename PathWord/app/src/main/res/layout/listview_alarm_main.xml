@@ -13,13 +13,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:text="08:50"
+        android:text="08"
         android:textSize="45dp"
         android:textColor="#000000"
         android:textAlignment="center"
         android:layout_gravity = "center_horizontal"
-        android:id="@+id/Time"
+        android:id="@+id/Hour"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=":"
+        android:textSize="45dp"
+        android:textColor="#000000"
+        android:textAlignment="center"
+        android:layout_gravity = "center_horizontal"
+        android:id="@+id/textView8"
+        android:layout_alignBottom="@+id/Hour"
+        android:layout_toRightOf="@+id/Hour"
+        android:layout_toEndOf="@+id/Hour" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        android:textSize="45dp"
+        android:textColor="#000000"
+        android:textAlignment="center"
+        android:layout_gravity = "center_horizontal"
+        android:id="@+id/Minute"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView8"
+        android:layout_toEndOf="@+id/textView8" />
 
     <TextView
         android:layout_height="wrap_content"
@@ -30,9 +54,8 @@
         android:textStyle="bold"
         android:textColor="#000000"
         android:id="@+id/AMPM"
-        android:layout_alignBaseline="@+id/Time"
-        android:layout_alignBottom="@+id/Time"
-        android:layout_toEndOf="@+id/Time">
+        android:layout_alignBaseline="@+id/Minute"
+        android:layout_toEndOf="@+id/Minute">
     </TextView>
     <TextView
         android:layout_height="wrap_content"
@@ -43,8 +66,8 @@
         android:textStyle="bold"
         android:textColor="#000000"
         android:id="@+id/Date"
-        android:layout_below="@+id/Time"
-        android:layout_alignStart="@+id/Time">
+        android:layout_below="@+id/Minute"
+        android:layout_alignStart="@+id/Hour">
     </TextView>
 
     <ImageView
