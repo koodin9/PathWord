@@ -23,7 +23,7 @@ import java.util.ArrayList;
  * Created by HWANG on 15. 9. 12..
  */
 public class ToServer extends Activity {
-    private final String urlPath = "http://192.168.0.3:8888/PathWord/";
+    private final String urlPath = "http://192.168.1.103:8888/PathWord/";
 
     JSONObject sendToServer(String url,ArrayList<String> key,ArrayList<String> value){
         HttpClient http = new DefaultHttpClient();
