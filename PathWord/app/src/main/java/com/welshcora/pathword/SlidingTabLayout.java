@@ -16,6 +16,7 @@ package com.welshcora.pathword;
  */
 
         import android.content.Context;
+        import android.graphics.Color;
         import android.graphics.Typeface;
         import android.os.Build;
         import android.support.v4.view.PagerAdapter;
@@ -47,7 +48,7 @@ package com.welshcora.pathword;
  * The views used as tabs can be customized by calling {@link #setCustomTabView(int, int)},
  * providing the layout ID of your custom layout.
  */
-public class SlidingTabLayout extends HorizontalScrollView {
+public class SlidingTabLayout extends HorizontalScrollView  {
     /**
      * Allows complete control over the colors drawn in the tab layout. Set with
      * {@link #setCustomTabColorizer(TabColorizer)}.
@@ -165,7 +166,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     protected TextView createDefaultTabView(Context context) {
         TextView textView = new TextView(context);
         textView.setGravity(Gravity.CENTER);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, TAB_VIEW_TEXT_SIZE_SP);
+        textView.setTextAppearance(context, android.R.style.TextAppearance_Large);
         FontChangeCrawler temp = new FontChangeCrawler(super.getContext().getAssets());
         textView.setTypeface(temp.typeface);
         textView.setLayoutParams(new LinearLayout.LayoutParams(

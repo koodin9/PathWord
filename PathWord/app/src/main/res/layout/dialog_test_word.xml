@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f2f2f2"
+    >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="1"
+            android:textColor="@color/mainColor"
+            android:id="@+id/currentcount"
+            android:layout_alignBottom="@+id/slush"
+            android:layout_toStartOf="@+id/slush"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="/"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/mainColor"
+            android:id="@+id/slush"
+
+            android:layout_marginTop="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="5"
+            android:textColor="@color/mainColor"
+            android:id="@+id/totalcount"
+            android:layout_alignBottom="@+id/slush"
+            android:layout_toEndOf="@+id/slush"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="다음 중 보기의 단어 뜻인 것은?"
+            android:id="@+id/textView6"
+            android:layout_below="@+id/slush"
+            android:layout_centerHorizontal="true"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView6"
+            android:layout_marginTop="30dp"
+            android:id="@+id/layout"
+            android:layout_centerHorizontal="true"
+            android:background="@color/mainColor"
+            android:padding="3dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding = "10dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="sample word"
+                android:id="@+id/sampleword" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/test_correct"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/test_correct"
+            android:visibility="invisible"
+
+            />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/test_incorrect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+            android:id="@+id/test_incorrect"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout"
+            android:id="@+id/radiolayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New RadioButton"
+                android:layout_margin="20dp"
+                android:id="@+id/example1"
+                android:checked="false" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New RadioButton"
+                android:layout_margin="20dp"
+                android:id="@+id/example2"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New RadioButton"
+                android:layout_margin="20dp"
+                android:id="@+id/example3"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New RadioButton"
+                android:layout_margin="20dp"
+                android:id="@+id/example4"
+                />
+        </RadioGroup>
+        <ImageButton
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/wordbook_popupcancle"
+            android:id="@+id/stopTest"
+            android:layout_margin="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="53dp"
+            android:id="@+id/nextQuestion"
+            android:background="@drawable/test_next"
+            android:layout_alignTop="@+id/layout"
+            android:layout_toEndOf="@+id/layout"
+            android:layout_marginStart="20dp"
+            />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="53dp"
+            android:layout_alignTop="@+id/layout"
+            android:id="@+id/previousQuestion"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/test_previous"
+            android:layout_toStartOf="@+id/layout"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

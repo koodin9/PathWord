@@ -1,24 +1,15 @@
 package com.welshcora.pathword;
 
-import android.graphics.Typeface;
-import android.support.v4.app.Fragment;
 
 /**
  * Created by DuckG on 2015-09-02.
  */
 
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 
 public class WordBookFragment extends BaseFragment {
@@ -30,13 +21,19 @@ public class WordBookFragment extends BaseFragment {
     SlidingTabLayout tabs;
     String Titles[]={"단어","루트","테스트"};
     int Numboftabs =3;
-
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View connectionView = inflater.inflate(R.layout.fragment_wordbook,container,false);
+
         return connectionView;
     }
-    @Override
+
+
     public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         super.onActivityCreated(savedInstanceState);
         //툴바 설정
         setToolbar("단어장");
@@ -44,7 +41,8 @@ public class WordBookFragment extends BaseFragment {
         setFont();
         //커스텀 속성
         // Creating The ViewPagerAdapter and Passing Fragment Manager, Titles fot the Tabs and Number Of Tabs.
-        adapter =  new ViewPagerAdapter(getActivity().getSupportFragmentManager(),Titles,Numboftabs);
+        setRetainInstance(true);//액티비티가 재성성될때 프래그먼트를 살려준다.
+        adapter =  new ViewPagerAdapter(getActivity().getSupportFragmentManager(),Titles,Numboftabs,"wordbook");
 
         // Assigning ViewPager View and setting the adapter
         pager = (ViewPager) getActivity().findViewById(R.id.viewpager);
@@ -64,7 +62,9 @@ public class WordBookFragment extends BaseFragment {
 
         // Setting the ViewPager For the SlidingTabsLayout
         tabs.setViewPager(pager);
+
     }
+
     public static WordBookFragment newInstance() {
         WordBookFragment fragment = new WordBookFragment();
         return fragment;

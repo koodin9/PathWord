@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#07B2E0">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/title"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="메일주소"
+        android:layout_below="@+id/imageView"
+        android:layout_alignLeft="@+id/password"
+        android:layout_alignStart="@+id/password"
+        android:layout_alignRight="@+id/password"
+        android:layout_alignEnd="@+id/password" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/mail"
+        android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayout">
+
+            <ImageButton
+                android:id="@+id/login"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/loginbutton"
+                android:layout_marginRight="54dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/membership"
+                android:layout_toStartOf="@+id/membership"
+                android:layout_marginEnd="54dp"
+                android:onClick="onLoginButton"/>
+            <ImageButton
+                android:id="@+id/membership"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/membershipbutton"
+                android:layout_marginRight="61dp"
+                android:layout_alignTop="@+id/login"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="61dp"
+                android:onClick="onMembershipButton"/>
+        </RelativeLayout>
+
+    <TextView
+        android:id="@+id/findId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디/비밀번호가 기억나지않으세요?"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

@@ -1,22 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:background="#e8eded"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        android:id="@+id/label"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView
+            android:id="@+id/WordTest"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:textSize="35dp"
+            android:text="36"
+            android:textColor="#ffffff"
+            android:background="@drawable/circle"
+            android:layout_toLeftOf="@+id/RootTest"
+            />
+        <TextView
+            android:id="@+id/RootTest"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:textSize="35dp"
+            android:text="36"
+            android:textColor="#ffffff"
+            android:background="@drawable/circlegreen"
+            android:layout_alignTop="@+id/WordTest"
+            android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:id="@+id/item_subtitle"
+
+        <TextView
+            android:id="@+id/WrongNote"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:textSize="35dp"
+            android:text="36"
+            android:textColor="#ffffff"
+            android:background="@drawable/circleorange"
+            android:layout_toRightOf="@+id/RootTest"
+            />
+
+        <TextView
+            android:layout_width="80dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="루트테스트"
+            android:layout_below="@+id/RootTest"
+            android:layout_alignStart="@+id/RootTest" />
+        <TextView
+            android:layout_width="80dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="단어테스트"
+            android:id="@+id/WordTestText"
+            android:layout_below="@+id/WordTest"
+            android:layout_alignStart="@+id/WordTest" />
+        <TextView
+            android:layout_width="80dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="오답노트"
+            android:layout_below="@+id/WrongNote"
+            android:layout_alignStart="@+id/WrongNote" />
+    </RelativeLayout>
+
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d7dcdc"
+        android:layout_marginTop="40dp"
+        android:id="@+id/boundary"
+        android:layout_below="@id/label">
+    </FrameLayout>
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="test:"/>
+        android:id="@+id/label2"
+        android:layout_below="@id/boundary"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+        <FrameLayout
+            android:layout_width="85dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="10dp"
+            android:background="#000000"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentStart="true">
+        </FrameLayout>
 
-    <TextView
-        android:id="@+id/item_title"
+        <FrameLayout
+            android:layout_width="85dp"
+            android:layout_height="2dp"
+            android:layout_marginRight="10dp"
+            android:background="#000000"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentEnd="true">
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:text="지난 테스트 결과입니다"
+            android:textColor="#000000"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <ListView
         android:layout_width="wrap_content"
+        android:drawSelectorOnTop="true"
         android:layout_height="wrap_content"
-        android:textSize="80sp" />
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/listView_tap_test"
+        android:layout_below="@+id/label2"
+        android:layout_centerHorizontal="true"
+        />
 
-</LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <FrameLayout
+        android:layout_width="35dp"
+        android:layout_height="match_parent"
+        android:background="#00000000"
+        android:id="@+id/left">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="60dp"
+            android:id="@+id/previous"
+            android:background="@drawable/wordbook_word_left"
+            android:layout_gravity="center"
+            />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="35dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="#00000000"
+        android:id="@+id/right">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="60dp"
+            android:id="@+id/next"
+            android:background="@drawable/wordbook_word_right"
+            android:layout_gravity="center"
+            />
+    </FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_toEndOf="@id/left"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="35dp"
+        android:background="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#ffffff"
+            >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:background="#07B2E0"
+                >
+            </FrameLayout>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stability"
+            android:lines="1"
+            android:textSize="40dp"
+            android:textColor="#000000"
+            android:id="@+id/dialogword"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="[발음기호]"
+            android:textSize="20dp"
+            android:id="@+id/pronoun"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/dialogword" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_below="@+id/pronoun"
+            android:id="@+id/descriptionlayout"
+            android:layout_height="200dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="25dp"
+                android:id="@+id/description"
+                android:lineSpacingExtra="5dp"
+                android:textColor="#000000"
+                android:text="1. 안정 \n2. 안정감의"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                />
+        </ScrollView>
+        <RelativeLayout
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentEnd="true"
+                >
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:text="    닫 기"
+                    android:textColor="#626262"
+                    android:id="@+id/cancle"
+                    android:background="@drawable/wordbook_popupbutton"
+                    />
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:background="@drawable/wordbook_popupcancle"
+                    android:layout_centerVertical="true"
+                    android:layout_alignLeft="@+id/cancle"
+                    android:layout_alignStart="@+id/cancle"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginStart="13dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="30dp"
+                >
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:text="   단어연상"
+                    android:textColor="#626262"
+                    android:id="@+id/remind"
+                    android:background="@drawable/wordbook_popupbutton"
+                    />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/button_main_remind"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="15dp"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

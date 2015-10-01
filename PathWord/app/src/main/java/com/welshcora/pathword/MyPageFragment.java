@@ -2,18 +2,13 @@ package com.welshcora.pathword;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import org.json.JSONObject;
 
@@ -39,7 +34,7 @@ public class MyPageFragment extends BaseFragment {
 
         ts = new ToServer();
         key.add("mail");
-        value.add(MyApplication.getGlobalString());
+        value.add(PathWord.getGlobalString());
 
         returnJson = ts.sendToServer("myinform.php", key, value);
 
@@ -72,9 +67,9 @@ public class MyPageFragment extends BaseFragment {
         CircleImageView ProfilePic = (CircleImageView) getActivity().findViewById(R.id.profilePic); //프로필사진 셋팅 드로어 말고
         Drawable pic = getResources().getDrawable(R.drawable.aka);
         ProfilePic.setImageDrawable(pic);
-        ProfilePic.setOnClickListener(new View.OnClickListener(){
+        ProfilePic.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(v.getId() ==R.id.profilePic){
+                if (v.getId() == R.id.profilePic) {
                     PhotoDialog fd = new PhotoDialog();
                     fd.show(getFragmentManager(), "MYTGAGGG");
                 }
@@ -83,8 +78,8 @@ public class MyPageFragment extends BaseFragment {
 
         mListView = (ListView) getActivity().findViewById(R.id.listView_myPage);
         mAdapter1 = new ListViewAdapter(getActivity());
-        mAdapter1.addItem("포인트", "포인트요만큼P", POINT_TYPE);
-        mAdapter1.addItem("58", "102","1023","89", COMBINE_TYPE);
+        mAdapter1.addItem("포인트", String.valueOf(point), POINT_TYPE);
+        mAdapter1.addItem(String.valueOf(ranking),String.valueOf(friendsNum), "숫자", "숫자2", COMBINE_TYPE);
         mAdapter1.addItem("",LABLE_TYPE);
         mAdapter1.addItem("랭킹", NORMAL_TYPE);
         mAdapter1.addItem("친구 목록", NORMAL_TYPE);
@@ -101,9 +96,6 @@ public class MyPageFragment extends BaseFragment {
                     getActivity().startActivity(intent);
                 } else if (mData.mTitle.equals("포인트")){
                     Intent intent = new Intent(getActivity(), PointActivity.class);
-                    getActivity().startActivity(intent);
-                } else if (mData.mTitle.equals("친구 찾기")){
-                    Intent intent = new Intent(getActivity(), FindFriend.class);
                     getActivity().startActivity(intent);
                 }
             }

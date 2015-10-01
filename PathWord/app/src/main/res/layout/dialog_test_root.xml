@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f2f2f2"
+    >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="1"
+            android:textColor="@color/mainColor"
+            android:id="@+id/currentcount"
+            android:layout_alignBottom="@+id/slush"
+            android:layout_toStartOf="@+id/slush"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="/"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/mainColor"
+            android:id="@+id/slush"
+
+            android:layout_marginTop="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="5"
+            android:textColor="@color/mainColor"
+            android:id="@+id/totalcount"
+            android:layout_alignBottom="@+id/slush"
+            android:layout_toEndOf="@+id/slush"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="다음 중 중심단어의 단어 뜻인 것은?"
+            android:id="@+id/textView6"
+            android:layout_below="@+id/slush"
+            android:layout_centerHorizontal="true"/>
+
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/test_correct"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/test_correct"
+            android:visibility="invisible"
+            />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/test_incorrect"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:id="@+id/test_incorrect"/>
+
+
+        <ImageButton
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/wordbook_popupcancle"
+            android:id="@+id/stopTest"
+            android:layout_margin="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="53dp"
+            android:id="@+id/nextQuestion"
+            android:background="@drawable/test_next"
+            android:layout_alignTop="@+id/previousQuestion"
+            android:layout_toRightOf="@+id/example1_root"
+            android:layout_toEndOf="@+id/example1_root" />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="53dp"
+            android:id="@+id/previousQuestion"
+            android:background="@drawable/test_previous"
+            android:layout_below="@+id/example4_root"
+            android:layout_toLeftOf="@+id/example1_root"
+            android:layout_toStartOf="@+id/example1_root"
+            android:layout_marginTop="36dp" />
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/test_root_circle"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="sample word"
+            android:id="@+id/sampleword"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/test_root_circle1"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="sample word"
+            android:id="@+id/example1_root"
+            android:clickable="true"
+            android:layout_above="@+id/example2_root"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/test_root_circle1"
+            android:gravity="center"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="sample word"
+            android:id="@+id/example2_root"
+            android:layout_alignBottom="@+id/sampleword"
+            android:layout_toStartOf="@+id/sampleword" />
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="10dp"
+            android:clickable="true"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/test_root_circle1"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="sample word"
+            android:id="@+id/example3_root"
+            android:layout_alignBottom="@+id/sampleword"
+            android:layout_toEndOf="@+id/sampleword" />
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/test_root_circle1"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="sample word"
+            android:id="@+id/example4_root"
+            android:clickable="true"
+
+            android:layout_below="@+id/sampleword"
+            android:layout_toLeftOf="@+id/currentcount"
+            android:layout_toStartOf="@+id/currentcount" />
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/test_root_circle1"
+            android:gravity="center"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="sample word"
+            android:id="@+id/example5_root"
+            android:layout_above="@+id/previousQuestion"
+            android:layout_toRightOf="@+id/totalcount"
+            android:layout_toEndOf="@+id/totalcount" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

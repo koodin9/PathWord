@@ -12,7 +12,6 @@
         android:src="@drawable/remind_add"
         android:background="@drawable/circle"
         android:id="@+id/imageButton"
-
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
     <RelativeLayout
@@ -24,10 +23,9 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Androiddd"
             android:textColor="#ffffff"
             android:textAllCaps="false"
-            android:background="@drawable/remind_normal"
+            android:background="@drawable/circle_plus"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:id="@+id/remind_add"
@@ -35,7 +33,6 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Apple"
             android:textColor="#ffffff"
             android:textAllCaps="false"
             android:background="@drawable/remind_normal"
@@ -46,7 +43,6 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="appleapple"
             android:textColor="#ffffff"
             android:textAllCaps="false"
             android:background="@drawable/remind_normal"
@@ -58,7 +54,6 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="apple"
             android:textColor="#ffffff"
             android:textAllCaps="false"
             android:layout_marginTop="20dp"
@@ -71,7 +66,6 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="gaenogadaim"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:layout_marginRight="20dp"
@@ -83,7 +77,6 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="apple"
             android:textColor="#ffffff"
             android:textAllCaps="false"
             android:layout_marginLeft="20dp"
@@ -94,9 +87,9 @@
             android:layout_marginTop="40dp" />
     </RelativeLayout>
     <Button
+        android:id="@+id/root"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:text="Root"
         android:textSize="20dp"
         android:textColor="@color/mainColor"
         android:textAllCaps="false"

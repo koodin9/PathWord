@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#333333">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/relativeLayout2"
+        android:focusable="false"
+        android:focusableInTouchMode="true">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/remind_add"
+            android:background="@drawable/circle"
+            android:id="@+id/fixroot"
+            android:onClick="fixRoot"
+            android:layout_alignTop="@+id/prebranch"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:textColor="#ffffff"
+            android:textAllCaps="false"
+            android:background="@drawable/remind_normal"
+            android:id="@+id/afterbranch"
+            android:layout_below="@+id/root"
+            android:layout_toRightOf="@+id/root"
+            android:layout_toEndOf="@+id/root" />
+
+        <EditText
+            android:gravity="center"
+            android:hint="루트단어"
+            android:textAlignment="center"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:textSize="20dp"
+            android:textColor="@color/mainColor"
+            android:textAllCaps="false"
+            android:background="@drawable/remind_now"
+            android:id="@+id/root"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="56dp" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:background="@drawable/remind_normal"
+            android:id="@+id/prebranch"
+            android:layout_below="@+id/root"
+            android:layout_toLeftOf="@+id/root"
+            android:layout_toStartOf="@+id/root" />
+    </RelativeLayout>
+
+</RelativeLayout>

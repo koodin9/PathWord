@@ -6,7 +6,7 @@
     android:id="@+id/DrawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="7dp"
+    android:elevation="2dp"
     android:touchscreenBlocksFocus="false">
 
     <RelativeLayout
@@ -19,15 +19,6 @@
             android:id="@+id/tool_bar"
             layout="@layout/tool_bar">
         </include>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="메인엑티비티인데 이건 빈 껍대기요"
-            android:id="@+id/textView6"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
-
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

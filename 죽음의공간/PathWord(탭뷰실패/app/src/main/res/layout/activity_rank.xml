@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#f2f2f2"
+
+        >
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/tool_bar">
+        </include>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:background="#333333"
+            android:layout_height="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="금주의 랭킹"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:id="@+id/textView3"
+                android:layout_marginStart="26dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="3dp"
+                android:text="남은시간 -3일 이거 해야대"
+                android:textColor="#ffffff"
+                android:textSize="10dp"
+                android:id="@+id/textView4"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/listView_rank"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar" />
+
+    </LinearLayout>

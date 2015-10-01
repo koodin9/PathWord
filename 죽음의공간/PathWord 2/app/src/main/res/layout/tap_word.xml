@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:id="@+id/relativeLayout3"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="최신순"
+            android:id="@+id/recent"
+            android:layout_toLeftOf="@+id/textView"
+            android:layout_centerVertical="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="|"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:layout_toLeftOf="@+id/alphabet"
+            android:layout_centerVertical="true"
+            android:id="@+id/textView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="알파벳순"
+            android:id="@+id/alphabet"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="#00000000"
+        android:id="@+id/listview_tap_word"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

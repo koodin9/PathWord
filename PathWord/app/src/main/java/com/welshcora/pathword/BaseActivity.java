@@ -1,6 +1,8 @@
 package com.welshcora.pathword;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -19,6 +21,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 
 public class BaseActivity extends ActionBarActivity {
     //리스트뷰
@@ -36,6 +43,10 @@ public class BaseActivity extends ActionBarActivity {
     public static final int ALARMSOUND_TYPE = 11;
     public static final int ALARMTIMEPICKER_TYPE = 12;
     public static final int NORMALTYPEFACE_TYPE = 13;
+    public static final int WORDBOOK_TEST_TYPE_WORD = 16;
+    public static final int WORDBOOK_TEST_TYPE_ROOT = 17;
+    public static final int FRIENDREQUEST_TYPE = 18;
+    public static final int FRIENDREQUEST_TYPE2 = 19;
 
     //드로어로 조정할 프래그먼트
     SettingFragment settingFragment;
@@ -45,9 +56,11 @@ public class BaseActivity extends ActionBarActivity {
     MainFragment mainFragment;
 
     //네비게이션 드로어
+    ArrayList<String> key = new ArrayList<String>();
+    ArrayList<String> value = new ArrayList<String>();
     String TITLES[] = {"단어연상","단어장","알람","게임","검색","환경설정"};
     int ICONS[] = {R.drawable.drawer_ic_remind,R.drawable.drawer_ic_voca,R.drawable.drawer_ic_alarm,R.drawable.drawer_ic_games,R.drawable.drawer_ic_search,R.drawable.drawer_ic_setting};
-    String LEVEL = "Lv. 99";
+    String Email = PathWord.getGlobalString();
     String NAME = "포도지현";
     int PROFILE = R.drawable.aka; //프로필 사진
     RecyclerView mRecyclerView;                           // RecyclerView를 정의
@@ -67,12 +80,38 @@ public class BaseActivity extends ActionBarActivity {
     public ListView mListView = null;
     public ListViewAdapter mAdapter1 = null;
 
+    //서버
+    JSONObject returnJson;
+    ToServer ts;
+
+
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
         //프래그 먼트 객체를 생성함
         makeInstance();
+        //서버에서 메일로 이름과 레벨을 가져옴
+        ts = new ToServer();
+        key.add("mail");
+        value.add(PathWord.getGlobalString());
+
+        returnJson = ts.sendToServer("BaseActivity.php", key, value);
+
+        for(int i=0;i<key.size();i++){
+            key.remove(i);
+            value.remove(i);
+        }
+        try{
+            String str = returnJson.getString("flag");
+            if(str.equals("N")){
+                Toast.makeText(getApplicationContext(), "존재하지 않은 메일주소입니다.", Toast.LENGTH_LONG).show();
+            } else {
+                NAME = str;
+            }
+        } catch (JSONException e){ e.printStackTrace();
+        }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -130,7 +169,7 @@ public class BaseActivity extends ActionBarActivity {
         //네비게이션 드로어
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView); // RecyclerView Object에 xml View를 넣어 정의한다
         mRecyclerView.setHasFixedSize(true);                            // 시스템에게 오브젝트들이 fixed size임을 알게한다.
-        mAdapter = new DrawerAdapter(TITLES,ICONS,LEVEL,NAME,PROFILE, this);       // MyAdapter class의 인스턴스를 생성한다.
+        mAdapter = new DrawerAdapter(TITLES,ICONS,Email,NAME,PROFILE, this);       // MyAdapter class의 인스턴스를 생성한다.
         mRecyclerView.setAdapter(mAdapter);                              // RecyclerViewk에 MyAdapter를 넣는다.
         //드로어 선택 각 액티비티마다 추가해줘야 하는듯
         final GestureDetector mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
@@ -150,12 +189,13 @@ public class BaseActivity extends ActionBarActivity {
                     }
                     child.setSelected(true);
                     Toast.makeText(BaseActivity.this,"The Item Clicked is: "+recyclerView.getChildPosition(child),Toast.LENGTH_SHORT).show();
+                    makeInstance();
                     switch (recyclerView.getChildPosition(child)) {
                         case 0:
                             getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, myPageFragment).addToBackStack(null).commit();
                             break;
                         case 1:
-                            Intent intent = new Intent(BaseActivity.this ,RemindActivity.class);
+                            Intent intent = new Intent(BaseActivity.this ,UserOrAuto.class);
                             startActivity(intent);
                             break;
                         case 2:

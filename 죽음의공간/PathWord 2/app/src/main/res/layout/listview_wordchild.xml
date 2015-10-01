@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingRight="20dp"
+    android:paddingLeft="50dp">
+
+
+    <TextView
+        android:id="@+id/description"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:text="이건 매우긴 설명이 될껏이야 그리고 이건 매우긴 설명이될껏이고 매우매우매우 짜장면이 될꺼야"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="10dp"
+        android:textColor="#ff000000"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        />
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_margin = "20dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/invite"
+        android:text="추가"
+        android:textSize="15dp"
+        android:id="@+id/addButton"
+        android:layout_below="@+id/description"
+        android:layout_alignParentRight="true"
+        />
+</RelativeLayout>

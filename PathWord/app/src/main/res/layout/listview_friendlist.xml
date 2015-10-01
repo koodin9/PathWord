@@ -54,16 +54,4 @@
         android:layout_toEndOf="@+id/personName">
     </TextView>
 
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="30dp"
-        android:textColor="#ffffff"
-        android:background="@drawable/invite"
-        android:id="@+id/textView5"
-        android:text="초대"
-        android:textStyle="bold"
-        android:layout_marginEnd="18dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true" />
-
 </RelativeLayout>

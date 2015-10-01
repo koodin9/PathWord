@@ -6,6 +6,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Switch;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -13,11 +16,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class ListData {
         public String mTitle;
-        public static final int LABLE_TYPE = 0;
-        public static final int NOMAL_TYPE = 1;
-        public static final int SWITCH_TYPE = 2;
-        public static final int RANKLIST_TYPE = 3;
-
         protected int type;
         public void setType(int _type)
         {
@@ -76,3 +74,47 @@ class AlarmDateListData extends ListData {
         public String sat;
         public String sun;
 }
+class wordBook_WordData extends ListData{
+        String dateOrAlphabet;
+        String description;
+        String word;
+        String pronoun;
+}
+class wordBook_RootData extends ListData{
+        String pronoun;
+        String description;
+        String word;
+}
+class wordBook_TestDataWord extends ListData{
+        String date;
+        int countStar;
+        String question;
+        String correct;
+        String incorrect;
+}
+class wordBook_TestDataRoot extends ListData{
+        String date;
+        int countStar;
+        String question;
+        String correct;
+        String incorrect;
+}
+class friendRequestData extends ListData{
+        String name;
+        String email;
+        public Drawable ProfilePic;
+}
+//여기서 부터는 expandable Listview를 위한 Data
+class GroupItem {
+        String word;
+        int formCount = 0;
+        ArrayList<String> form = new ArrayList<String>();
+        List<ChildItem> items = new ArrayList<ChildItem>();//ChildData는 하나만 들어갈 예정.
+}
+
+class ChildItem {
+        String description;
+        String descriptionOrigin;
+        String word;
+}
+

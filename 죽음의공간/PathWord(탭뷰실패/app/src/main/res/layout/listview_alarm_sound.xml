@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#ffffff"
+    >
+
+        <ImageView
+            android:id="@+id/soundIc"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/sound"
+            android:text="Text"
+            android:textSize="20dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:padding = "10dp"
+            />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:id="@+id/seekBar"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/soundIc"
+        />
+
+
+</RelativeLayout>

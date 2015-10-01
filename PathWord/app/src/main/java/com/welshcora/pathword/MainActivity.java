@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 //빈 액티비티. 프래그먼트들의 온클릭 메소드만 정의되어 있다! 그리고 이 액티비티 하위에있는 프래그먼트들을 위하여 툴바를 생성한다.
 public class MainActivity extends BaseActivity {
-
+    boolean waitInput;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,21 +27,16 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
     public void onRemindButonClicked(View v){
-        Intent intent = new Intent(this,RemindActivity.class);
+        Intent intent = new Intent(this,UserOrAuto.class);
         startActivity(intent);
     }
     public void onVocaButonClicked(View v){
+        makeInstance();
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, wordBookFragment).addToBackStack(null).commit();
     }
     public void onAlarmButonClicked(View v){
+        makeInstance();
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, alarmFragment).addToBackStack(null).commit();
-    }
-    public void onSearchButonClicked(View v){
-        Intent intent = new Intent(this, SearchActivity.class);
-        startActivity(intent);
-    }
-    public void onGamesButonClicked(View v){
-        Toast.makeText(this, "메인 메뉴 게임 버튼이 눌림", Toast.LENGTH_LONG).show();
     }
     public void onSettingButonClicked(View v) {
         Toast.makeText(this, "메인 메뉴 셋팅 버튼이 눌림", Toast.LENGTH_LONG).show();
@@ -51,5 +46,9 @@ public class MainActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.mainFrame);
         fragment.onActivityResult(requestCode, resultCode, data);
+    }
+    public void checkRequest(View v){
+        Intent intent = new Intent(MainActivity.this ,checkRequestActivity.class);
+        startActivity(intent);
     }
 }

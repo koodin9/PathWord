@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:id="@+id/relativeLayout3"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:id="@+id/dynamicLayout"
+            android:gravity="center"
+            android:layout_height="match_parent">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/checkBox"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="최신순"
+            android:textColor="#000000"
+            android:id="@+id/recent"
+            android:layout_toLeftOf="@+id/textView"
+            android:layout_centerVertical="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="|"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:layout_toLeftOf="@+id/alphabet"
+            android:layout_centerVertical="true"
+            android:id="@+id/textView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="알파벳순"
+            android:id="@+id/alphabet"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="#00000000"
+        android:id="@+id/listview_tap_word"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/showuplayout"
+        android:background="#BB000000"
+        android:layout_weight="1.0"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1.0"
+            android:layout_gravity="center"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="15dp"
+                android:background="@drawable/wordbook_word_selectall"
+                android:id="@+id/imageView3"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="17dp"
+                android:layout_marginStart="17dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/selectall"
+                android:text="전체선택"
+                android:background="@android:color/transparent"
+                android:textColor="#ffffff"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageView3"
+                android:layout_toEndOf="@+id/imageView3" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1.0"
+            android:layout_gravity="center"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="15dp"
+                android:background="@drawable/wordbook_word_delete"
+                android:id="@+id/imageView4"
+                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/delete"
+                android:text="삭제"
+                android:background="@android:color/transparent"
+                android:textColor="#ffffff"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageView4"
+                android:layout_toEndOf="@+id/imageView4" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1.0"
+            android:layout_gravity="center"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="15dp"
+                android:background="@drawable/wordbook_word_test"
+                android:id="@+id/imageView5"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="17dp"
+                android:layout_marginStart="17dp" />
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/test"
+                android:text="테스트"
+                android:background="@android:color/transparent"
+                android:textColor="#ffffff"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageView5"
+                android:layout_toEndOf="@+id/imageView5" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

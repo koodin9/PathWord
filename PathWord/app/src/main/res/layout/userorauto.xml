@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/user"
+        android:text="연속입력모드"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="usermode"/>
+    <Button
+        android:id="@+id/auto"
+        android:text="선택모드"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="automode"/>
+
+</LinearLayout>

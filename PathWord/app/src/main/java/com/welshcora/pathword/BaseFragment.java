@@ -26,6 +26,12 @@ public class BaseFragment extends Fragment {
     public static final int ALARMSOUND_TYPE = 11;
     public static final int ALARMTIMEPICKER_TYPE = 12;
     public static final int NORMALTYPEFACE_TYPE = 13;
+    public static final int WORDBOOK_WORD_TYPE = 14;
+    public static final int WORDBOOK_ROOT_TYPE = 15;
+    public static final int WORDBOOK_TEST_TYPE_WORD = 16;
+    public static final int WORDBOOK_TEST_TYPE_ROOT = 17;
+    public static final int FRIENDREQUEST_TYPE = 18;
+    public static final int FRIENDREQUEST_TYPE2 = 19;
 
     //리스트뷰를 위한 객체 정의
     protected ListView mListView = null;
